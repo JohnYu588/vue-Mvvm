@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+  <script src="./Mvue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div name='hhh' v-html="htmlStr"></div>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+    <div v-text="message"></div>
+    <div v-text="person.priv"></div>
+    <div>
+      <input v-model='person.sex'></input>
+      <button v-on:click='click1'>按钮1</button>
+      <button @click='click2'>按钮2</button>
+    </div>
+    <h1>{{person.sex}}--{{person.priv}}</h1>
+    <h1>{{message}}</h1>
+    <a :href='href'>百度</a>
+    <a v-bind:href='href'>百度2</a>
+  </div>
+
+  <script>
+    let vm =  new Vue({
+      el: '#app',
+      methods: {
+        click1() {
+          this.$data.person.sex ='111';
+        },
+        click2() {
+          this.person.priv ='222';
+        }
+      },
+      data: {
+        href: 'https://www.baidu.com',
+        message: 'Hello Vue.js!',
+        htmlStr: '<span>标签</span>',
+        person: {
+          sex: '男',
+          priv: '女'
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>
